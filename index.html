@@ -1,131 +1,371 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mausoleum of Khoja Ahmed Yasawi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
 <style>
+:root{
+  --dark:#160d08;
+  --brown:#3a2415;
+  --cream:#f4ead7;
+  --paper:#fff8ec;
+  --gold:#d4af37;
+  --blue:#0f4c81;
+  --turquoise:#00a6b8;
+  --text:#2d2926;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-margin:0;
-font-family:Georgia, serif;
-background:#fbf8f3;
-color:#2c2c2c;
-line-height:1.8;
-}
-header{
-background:linear-gradient(135deg,#0f4c81,#1e9bb5,#d4af37);
-color:white;
-text-align:center;
-padding:100px 20px;
-}
-header h1{
-font-size:52px;
-margin-bottom:10px;
-}
-header p{
-font-size:20px;
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.7;
 }
 nav{
-background:rgba(255,255,255,0.96);
-padding:20px;
-text-align:center;
-border-bottom:2px solid #d4af37;
-position:sticky;
-top:0;
-z-index:999;
-backdrop-filter:blur(10px);
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(22,13,8,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(212,175,55,.45);
+  padding:14px 20px;
+  text-align:center;
 }
 nav a{
-text-decoration:none;
-color:#0f4c81;
-font-weight:bold;
-margin:0 12px;
-text-transform:uppercase;
-font-size:13px;
-letter-spacing:1px;
+  color:#fff4dc;
+  text-decoration:none;
+  margin:0 9px;
+  font-size:12px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-weight:700;
 }
-nav a:hover{
-color:#d4af37;
+nav a:hover{color:var(--gold)}
+
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(10,6,3,.55),rgba(10,6,3,.86)),
+    url("images/ChatGPT%20Image%2017%20%D0%B8%D1%8E%D0%BD%D1%8F%202026%20%D0%B3.,%2019_41_06.png") center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:120px 25px 80px;
 }
-main{
-max-width:1100px;
-margin:40px auto;
-background:white;
-padding:40px;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
+.hero-box{
+  max-width:920px;
+  border:1px solid rgba(212,175,55,.7);
+  padding:55px 45px;
+  background:rgba(22,13,8,.48);
+  box-shadow:0 30px 90px rgba(0,0,0,.55);
 }
-.hero-image{
-width:100%;
-border-radius:6px;
-margin-bottom:30px;
+.hero h1{
+  font-family:"Cinzel", serif;
+  font-size:64px;
+  line-height:1.08;
+  margin:0 0 20px;
+  color:#fff2c8;
+}
+.hero p{
+  font-size:19px;
+  color:#f8ead0;
+}
+.btn{
+  display:inline-block;
+  margin:12px 8px 0;
+  padding:13px 24px;
+  background:var(--gold);
+  color:var(--dark);
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  border:1px solid #fff2c8;
+}
+.btn.dark{
+  background:transparent;
+  color:white;
+}
+.btn:hover{
+  background:white;
+  color:var(--dark);
+}
+
+section{
+  max-width:1120px;
+  margin:0 auto;
+  padding:80px 25px;
+}
+.panel{
+  background:var(--paper);
+  border:1px solid rgba(212,175,55,.55);
+  padding:42px;
+  box-shadow:0 18px 55px rgba(58,36,21,.12);
 }
 h2{
-color:#0f4c81;
-font-size:34px;
-border-bottom:2px solid #d4af37;
-padding-bottom:10px;
+  font-family:"Cinzel", serif;
+  color:var(--brown);
+  font-size:38px;
+  margin:0 0 24px;
+  border-bottom:1px solid var(--gold);
+  padding-bottom:14px;
+}
+h3{
+  font-family:"Playfair Display", serif;
+  color:var(--blue);
+  font-size:26px;
+  margin:22px 0 10px;
+}
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+.split img,.full-img{
+  width:100%;
+  border:1px solid var(--gold);
+  box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+}
+.card{
+  background:#f9efd9;
+  border-left:5px solid var(--gold);
+  padding:22px;
+}
+.code{
+  background:#16110d;
+  color:#f8ead0;
+  padding:22px;
+  overflow:auto;
+  border-left:5px solid var(--turquoise);
+  font-family:monospace;
+  font-size:14px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+th,td{
+  border:1px solid #d7c79b;
+  padding:13px;
+}
+th{
+  background:var(--brown);
+  color:white;
 }
 footer{
-margin-top:50px;
-background:#0f4c81;
-color:white;
-text-align:center;
-padding:30px;
+  background:var(--dark);
+  color:#fff2c8;
+  text-align:center;
+  padding:45px 20px;
+  border-top:3px solid var(--gold);
 }
-ul li{
-margin-bottom:10px;
+@media(max-width:800px){
+  nav{position:static}
+  nav a{display:inline-block;margin:5px}
+  .hero h1{font-size:40px}
+  .split{grid-template-columns:1fr}
+  .panel{padding:28px}
 }
 </style>
 </head>
+
 <body>
-<header>
-<h1>Mausoleum of Khoja Ahmed Yasawi</h1>
-<p>
-Semantic Web, RDF and SPARQL Analysis of Islamic Cultural Heritage
-</p>
-<p>
-Gulnara Kozmet & Sevara Abdulazizova
-</p>
-</header>
+
 <nav>
-<a href="index.html">Home</a>
-<a href="topic.html">Topic</a>
-<a href="methodology.html">Methodology</a>
-<a href="rdf.html">RDF Triples</a>
-<a href="sparql.html">SPARQL</a>
-<a href="gaps.html">Identifying Gaps</a>
-<a href="prompts.html">LLM Prompts</a>
-<a href="challenges.html">Challenges</a>
-<a href="conclusion.html">Conclusion</a>
+  <a href="#home">Home</a>
+  <a href="#topic">Topic</a>
+  <a href="#methodology">Methodology</a>
+  <a href="#sparql">SPARQL</a>
+  <a href="#gaps">Gaps</a>
+  <a href="#llm">LLM</a>
+  <a href="#rdf">RDF</a>
+  <a href="#challenges">Challenges</a>
+  <a href="#conclusion">Conclusion</a>
 </nav>
-<main>
-<img src="images/IMG_8089.jpeg" class="hero-image">
-<h2>Introduction</h2>
-<p>
-This project explores how Semantic Web technologies can be used to represent and enrich cultural heritage information related to the Mausoleum of Khoja Ahmed Yasawi, one of the most important Islamic monuments in Central Asia.
-</p>
-<p>
-Using Wikidata, RDF triples, SPARQL queries, and Large Language Models, we investigated existing knowledge gaps and proposed new semantic descriptions that better represent the religious, historical, and cultural significance of the monument.
-</p>
-<h2>Research Objectives</h2>
-<ul>
-<li>Analyse existing Wikidata information.</li>
-<li>Identify semantic gaps.</li>
-<li>Create RDF triples for enrichment.</li>
-<li>Use SPARQL for data exploration.</li>
-<li>Evaluate LLM support in Knowledge Engineering.</li>
-</ul>
-<h2>Tools Used</h2>
-<ul>
-<li>Wikidata</li>
-<li>Wikidata Query Service</li>
-<li>SPARQL</li>
-<li>ChatGPT</li>
-<li>Gemini</li>
-<li>GitHub Pages</li>
-</ul>
-</main>
+
+<header class="hero" id="home">
+  <div class="hero-box">
+    <h1>Mausoleum of Khoja Ahmed Yasawi</h1>
+    <p>Semantic Web, RDF and SPARQL Analysis of Islamic Cultural Heritage</p>
+    <p><b>Gulnara Kozmet & Sevara Abdulazizova</b></p>
+    <a class="btn" href="#topic">Explore Project</a>
+    <a class="btn dark" href="https://github.com/sevavivi/khoja-yassawi" target="_blank">View GitHub</a>
+  </div>
+</header>
+
+<section id="topic">
+  <div class="panel split">
+    <div>
+      <h2>Topic</h2>
+      <p>
+        This project focuses on the Mausoleum of Khoja Ahmed Yasawi, a UNESCO World Heritage Site located in Turkistan, Kazakhstan.
+      </p>
+      <p>
+        The monument is important not only as an example of Timurid architecture, but also as a religious, spiritual, and cultural site connected with Sufism and the Yasawiyya tradition.
+      </p>
+      <h3>Research Question</h3>
+      <p>
+        How can Wikidata for the Mausoleum of Khoja Ahmed Yasawi be enriched through RDF triples and knowledge graph modeling?
+      </p>
+    </div>
+    <img src="images/IMG_8098.jpeg" alt="Islamic architectural detail">
+  </div>
+</section>
+
+<section id="methodology">
+  <div class="panel">
+    <h2>Methodology</h2>
+    <div class="cards">
+      <div class="card"><b>1. Selecting the Topic</b><br>We selected the mausoleum because of its historical, spiritual, and architectural importance.</div>
+      <div class="card"><b>2. Exploring Wikidata</b><br>We examined the existing Wikidata entry and identified what information was already available.</div>
+      <div class="card"><b>3. Building SPARQL Queries</b><br>We created queries to retrieve structured data about the monument.</div>
+      <div class="card"><b>4. Identifying Gaps</b><br>We compared query results with historical and cultural knowledge.</div>
+      <div class="card"><b>5. Using LLMs</b><br>ChatGPT and Gemini helped generate and evaluate enrichment suggestions.</div>
+      <div class="card"><b>6. Creating RDF Triples</b><br>We proposed RDF-style triples to enrich the knowledge graph.</div>
+    </div>
+  </div>
+</section>
+
+<section id="sparql">
+  <div class="panel">
+    <h2>SPARQL Queries</h2>
+    <p>
+      SPARQL was used to investigate what information Wikidata already contains about the Mausoleum of Khoja Ahmed Yasawi.
+    </p>
+
+    <h3>Query 1 — Basic Information</h3>
+    <pre class="code">SELECT ?property ?propertyLabel ?value ?valueLabel WHERE {
+  wd:Q1133705 ?property ?value .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}</pre>
+
+    <h3>Query 2 — Heritage Status</h3>
+    <pre class="code">SELECT ?item ?itemLabel ?heritage ?heritageLabel WHERE {
+  wd:Q1133705 wdt:P1435 ?heritage .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}</pre>
+
+    <h3>Query 3 — Related Places</h3>
+    <pre class="code">SELECT ?place ?placeLabel WHERE {
+  ?place wdt:P131* wd:Q650439 .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
+}</pre>
+  </div>
+</section>
+
+<section id="gaps">
+  <div class="panel">
+    <h2>Identifying Knowledge Gaps</h2>
+    <p>
+      The current Wikidata entry contains basic historical and architectural information. However, several important aspects remain underrepresented.
+    </p>
+    <div class="cards">
+      <div class="card"><b>Yasawiyya Sufi Order</b><br>The spiritual connection with the Yasawiyya tradition is not sufficiently modeled.</div>
+      <div class="card"><b>Pilgrimage Site</b><br>The mausoleum’s role as a pilgrimage destination is not fully represented.</div>
+      <div class="card"><b>Religious Significance</b><br>Its symbolic and spiritual meaning requires richer semantic description.</div>
+      <div class="card"><b>Related Heritage Sites</b><br>Connections with other religious heritage sites in Kazakhstan can be expanded.</div>
+    </div>
+  </div>
+</section>
+
+<section id="llm">
+  <div class="panel">
+    <h2>LLM Evaluation</h2>
+    <p>
+      We compared ChatGPT and Gemini using Zero-shot, Few-shot, and Chain-of-Thought prompting strategies.
+    </p>
+
+    <table>
+      <tr>
+        <th>Prompt Type</th>
+        <th>ChatGPT</th>
+        <th>Gemini</th>
+      </tr>
+      <tr>
+        <td>Zero-shot</td>
+        <td>Focused and concise</td>
+        <td>Detailed and contextual</td>
+      </tr>
+      <tr>
+        <td>Few-shot</td>
+        <td>Structured output</td>
+        <td>Strong adaptation to examples</td>
+      </tr>
+      <tr>
+        <td>Chain-of-Thought</td>
+        <td>Most consistent</td>
+        <td>Most exploratory</td>
+      </tr>
+    </table>
+
+    <p>
+      <a class="btn" href="https://liveunibo-my.sharepoint.com/:x:/g/personal/sevara_abdulazizova_studio_unibo_it/IQAvce5I0pJ1R7a_eZSGPOm2Ad68NTYWqlaEer0eWgfFtm4?e=0bYS9I" target="_blank">
+        Open LLM Comparison Spreadsheet
+      </a>
+    </p>
+  </div>
+</section>
+
+<section id="rdf">
+  <div class="panel">
+    <h2>RDF Triples</h2>
+    <p>
+      The following RDF-style triples propose semantic enrichment for Wikidata.
+    </p>
+
+    <pre class="code">:Mausoleum_of_Khoja_Ahmed_Yasawi :associatedWith :Yasawiyya_Sufi_Order .
+:Mausoleum_of_Khoja_Ahmed_Yasawi :hasFunction :Pilgrimage_Site .
+:Mausoleum_of_Khoja_Ahmed_Yasawi :associatedWith :Sufism .
+:Mausoleum_of_Khoja_Ahmed_Yasawi :relatedHeritageSite :Arystan_Bab_Mausoleum .</pre>
+  </div>
+</section>
+
+<section id="challenges">
+  <div class="panel">
+    <h2>Challenges</h2>
+    <div class="cards">
+      <div class="card"><b>SPARQL Difficulty</b><br>Some queries returned no results because the expected relations were missing.</div>
+      <div class="card"><b>Ontology Mapping</b><br>Religious and cultural meanings are difficult to model with simple predicates.</div>
+      <div class="card"><b>LLM Verification</b><br>LLM outputs needed human checking to avoid hallucinated triples.</div>
+      <div class="card"><b>Knowledge Gaps</b><br>Central Asian Islamic heritage is still underrepresented in global knowledge graphs.</div>
+    </div>
+  </div>
+</section>
+
+<section id="conclusion">
+  <div class="panel">
+    <h2>Conclusion</h2>
+    <p>
+      This project demonstrated how Semantic Web technologies and Large Language Models can support the enrichment of cultural heritage knowledge graphs.
+    </p>
+    <p>
+      By analyzing Wikidata through SPARQL, we identified missing information related to religious significance, pilgrimage practices, Sufi tradition, and connections with other heritage sites.
+    </p>
+    <p>
+      The project shows that LLMs can assist knowledge engineering, but their outputs must be critically verified before being used as structured data.
+    </p>
+  </div>
+</section>
+
 <footer>
-Knowledge Engineering for the Humanities • University of Bologna • 2026
+  Knowledge Engineering for the Humanities • University of Bologna • 2026
 </footer>
+
 </body>
 </html>
